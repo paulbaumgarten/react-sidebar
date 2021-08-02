@@ -44,7 +44,19 @@ function SideBar() {
   )
 }
 
-function Page1() { return ( <p>Page 1</p>) }
+function Page1() { 
+  let html = [];
+  for (let i=0; i<100; i++) {
+    html.push(i);
+  }
+  return ( 
+    <div>
+      {html.map((v)=>{
+        return(<p>{v}</p>)
+      })}
+    </div>
+)}
+
 function Page2() { return ( <p>Page 2</p>) }
 function Page3() { return ( <p>Page 3</p>) }
 function About() { return ( <p>About</p>) }

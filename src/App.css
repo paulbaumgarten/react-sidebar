@@ -54,6 +54,8 @@ html, body, #root {
 }
 
 .App .SideBar {
+  position: sticky;
+  top: 0;
   grid-area: SideBar;
   height: 100%;
   border-right: 1px solid var(--color-layout-border);
@@ -62,6 +64,7 @@ html, body, #root {
 
 .App .Content {
   grid-area: Content;
+  overflow-y: auto;
   padding-left: 10px;
   height: 100%;
 }
