@@ -13,7 +13,7 @@ Desktop with visible sidebar
 
 Mobile with hidden menu
 
-![](demo-mobile-hidden.png)
+<img src="demo-mobile-hidden.png" width="200" height="353">
 
 Mobile with visible menu
 
