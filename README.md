@@ -17,7 +17,7 @@ Mobile with hidden menu
 
 Mobile with visible menu
 
-![](dmeo-mobile-visible.png)
+![](demo-mobile-visible.png)
 
 ## Files to look at
 
