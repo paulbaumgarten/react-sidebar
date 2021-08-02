@@ -1,38 +1,68 @@
+:root {
+  --color-layout-border: #ccc;
+  --color-layout-sidebar: #eee;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
 .App {
-  text-align: center;
+  height: 100%;
+  display: grid;
+  /* Grid will be a 2x2 design. 
+  1st row: Merge both cells together. 64px high. 
+  2nd row: Left cell 300px wide, right cell all remaining space. */
+  grid-template: 
+    "TopBar  TopBar"  64px
+    "SideBar Content" auto / 300px auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App .SideBar .SideBar_visiblitybutton {
+  display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width: 640px) {
+  /* Rules for devices with screen <= 640px wide */
+  .App {
+    height: 100%;
+    display: grid;
+    /* Grid will be a 1x3 design. 
+    1st row: Merge both cells together. 64px high. 
+    2nd row: Left cell 300px wide, right cell all remaining space. */
+    grid-template: 
+      "TopBar"  64px
+      "SideBar" auto
+      "Content" 1fr;
+  }
+
+  .App .SideBar .SideBar_visiblitybutton {
+    display: block;
+    float: right;
+    height: 32px;
+    width: 32px;
+  }
+
+  .hideContent {
+    display: none;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App .TopBar {
+  grid-area: TopBar;
+  border-bottom: 1px solid var(--color-layout-border);
 }
 
-.App-link {
-  color: #61dafb;
+.App .SideBar {
+  grid-area: SideBar;
+  height: 100%;
+  border-right: 1px solid var(--color-layout-border);
+  background-color: var(--color-layout-sidebar);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .Content {
+  grid-area: Content;
+  padding-left: 10px;
+  height: 100%;
 }
+
